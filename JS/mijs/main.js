@@ -25,7 +25,7 @@ var geojsonMarkerOptions = {
 };
 
 // var anotherLayer = L.geoJSON(data, geojsonMarkerOptions).addTo(map);
-L.geoJson(data, {
+var capitales = L.geoJson(data, {
     pointToLayer: function (feature, latlng) {
         return L.circleMarker(latlng, geojsonMarkerOptions);
     }
@@ -34,8 +34,8 @@ L.geoJson(data, {
     
 
 var groupOverLays = {
-    "Límites departamentales del Perú": {
-        "another": anotherLayer
+    "Capitales del Perú": {
+        "Capitales": capitales
     }
 };
 
