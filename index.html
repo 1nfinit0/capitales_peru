@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/esri-leaflet@2.1.3/dist/esri-leaflet.js"></script>
+    <script src="https://unpkg.com/esri-leaflet-renderers@2.0.6/dist/esri-leaflet-renderers.js"></script>
+    <script src="JS/lib/leaflet-providers.js"></script>
+    <script src="https://cdn.osmbuildings.org/OSMBuildings-Leaflet.js"></script>
+    <script src="https://use.fontawesome.com/a64989e3a8.js"></script>
+    <link rel="stylesheet" href="CSS/lib/leaflet.groupedlayercontrol.min.css">
+    <script src="JS/lib/leaflet.groupedlayercontrol.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="CSS/lib/Control.MiniMap.css">
+    <script src="JS/lib/Control.MiniMap.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.pm@latest/dist/leaflet.pm.css">
+    <script src="https://unpkg.com/leaflet.pm@latest/dist/leaflet.pm.min.js"></script>
+    <script src="JS/lib/leaflet.wms.js"></script>
+    <script src="https://dayjournal.github.io/Leaflet.Control.Opacity/plugin/Leaflet.Control.Opacity/dist/L.Control.Opacity.js"></script>
+    <link rel="stylesheet" href="https://dayjournal.github.io/Leaflet.Control.Opacity/plugin/Leaflet.Control.Opacity/dist/L.Control.Opacity.css"/>
+    <link rel="stylesheet" href="CSS/micss/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/geojson-vt@3.2.0/geojson-vt.js"></script>
+    <script src="./JS/lib/leaflet-geojson-vt.js"></script>
+    <script src="./JS/mijs/capitales_departamentales_peru.js"></script>
+    <title>Capitales Departamentales del Perú | Huatay</title>
+</head>
+<body>
+    <header>
+        <div class="container_header">
+            <a href="https://1nfinit0.github.io/Huatay/" class="left">
+                <div class="logo">
+                    <img src="./assets/img/favicon.svg" alt="Huatay">
+                    <p>Lhuatay</p>
+                </div>
+            </a>
+            <a href="https://1nfinit0.github.io/Huatay/proyectos/proList.html" class="right">
+                <div class="arrow">
+                    <p>Proyectos</p>
+                </div>
+            </a>
+        </div>
+        <hr>
+    </header>
+    <main>
+        <h1>Capitales Departamentales del Perú</h1>
+        <div class="map_container">
+            <div id="map"></div>
+        </div>
+        <div class="metadata">
+            <div class="descarga">
+                <h3>Descarga</h3>
+                <hr>
+                <div class="formatos">
+                    <a href="https://github.com/1nfinit0/mindAR-prueba/raw/master/downloader/capitales_peru/capitales_peru_shp.zip" download>
+                        <div class='shp'>
+                            <p>SHP</p>
+                        </div>
+                    </a>
+                    <a href="https://github.com/1nfinit0/mindAR-prueba/raw/master/downloader/capitales_peru/capitales_peru_gml.zip" download>
+                        <div class='gml'>
+                            <p>GML</p>
+                        </div>
+                    </a>
+                    <a href="https://github.com/1nfinit0/mindAR-prueba/raw/master/downloader/capitales_peru/capitales_peru_sql.zip" download>
+                        <div class='bd'>
+                            <p>PL/PgSQL</p>
+                        </div>
+                    </a>
+                    <a href="https://github.com/1nfinit0/mindAR-prueba/raw/master/downloader/capitales_peru/capitales_peru_geojson.zip" download>
+                        <div class='geojson'>
+                            <p>GeoJson</p>
+                        </div>
+                    </a>
+                    <a href="https://idesep.senamhi.gob.pe:443/geoserver/g_00_01/wms?service=WMS&version=1.1.0&request=GetMap&layers=g_00_01:00_01_001_03_000_000_0000_00_00&styles=&bbox=-80.6842269897461,-18.0860214233398,-69.127685546875,-3.49837350845337&width=608&height=768&srs=EPSG:4326&format=application%2Fpdf" download>
+                        <div class='pdf'>
+                            <p>PDF</p>
+                        </div>
+                    </a>
+                    <a href="https://github.com/1nfinit0/mindAR-prueba/raw/master/downloader/capitales_peru/capitales_peru_kml.zip" download>
+                        <div class='kml'>
+                            <p>KML</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="info">
+                <h3>General</h3>
+                <hr>
+                <div class="dato">
+                    <h4>Archivo</h4>
+                    <p>capitales_peru</p>
+                </div>
+                <hr class="dato_booth">
+                <div class="dato">
+                    <h4>Origen</h4>
+                    <p>idesep@senamhi.gob.pe</p>
+                </div>
+                <hr class="dato_booth">
+                <div class="dato">
+                    <h4>Geometría</h4>
+                    <p>Point</p>
+                </div>
+                <hr class="dato_booth">
+                <div class="dato">
+                    <h4>Extensión</h4>
+                    <p>-80.62701288, -18.01380457 : -69.18490343, -3.57058973</p>
+                </div>
+                <hr class="dato_booth">
+                <div class="dato">
+                    <h4>Registros</h4>
+                    <p>25</p>
+                </div>
+                <hr class="dato_booth">
+                <div class="dato">
+                    <h4>Encoding</h4>
+                    <p>UTF-8</p>
+                </div>
+            </div>
+            <div class="info">
+                <h3>Sistema de Referencia de Coordenadas (SRC)</h3>
+                <hr>
+                <div class="dato">
+                    <h4>SRC</h4>
+                    <p>EPSG:4326 - WGS 84</p>
+                </div>
+                <hr class="dato_booth">
+                <div class="dato">
+                    <h4>Unidades</h4>
+                    <p>Geográficas - Long/Lat</p>
+                </div>
+                <hr class="dato_booth">
+            </div>
+        </div>
+    </main>
+    <footer>
+        <img src="./assets/img/foto_personal.jpg" alt="perfil">
+        <h2>Luis E. Huatay S.</h2>
+        <div class="costado">
+            <span>
+            </span>
+            <h4>T. Geomático</h4>
+        </div>
+        <div class="redes">
+            <a href="https://www.youtube.com/channel/UCPO_W-iDJmM77phTZYp_aWQ"><img src="./assets/img/yt.svg" alt="Youtube"></a>
+            <a href="https://wa.link/pvdrx9"><img src="./assets/img/whats.svg" alt="WhatssApp"></a>
+            <a href="https://github.com/1nfinit0"><img src="./assets/img/github.svg" alt="Github"></a>
+            <a href="https://twitter.com/1nfyT"><img src="./assets/img/twitter-svgrepo-com.svg" alt="Twitter"></a>
+            <a href="https://www.linkedin.com/in/luishuatay/"><img src="./assets/img/linkedin-svgrepo-com.svg" alt="Linkedin"></a>
+        </div>
+        <hr>
+        <p>(CC) Luis Huatay. 2024</p>
+        <p>Biblioteca geográfica de proyectos personales, insumos geográficos, mapas temáticos, datos espaciales, notas expositivas, ideas en general.</p>
+    </footer>
+    <script src="JS/mijs/main.js"></script>
+</body>
+</html>
